@@ -26,7 +26,10 @@ with open('HDFC-Input-Case1.csv', 'r') as csv_file:
             debitIndex = i
             creditIndex = i
 
-    with open('formatted-Transaction-1.csv', 'w') as formatted_file:
+    file_name = csv_file.name
+    file_name_len = len(file_name)
+    output_file_name = 'formatted-Transaction-'+file_name[file_name_len-5: file_name_len-4]+'.csv'
+    with open(output_file_name, 'w') as formatted_file:
         csv_writer = csv.writer(formatted_file)
         headers_row = ['Date', 'Transaction Description', 'Debit', 'Credit']
         # print(headers_row)
